@@ -73,6 +73,84 @@
             letter-spacing: 4px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
+
+        .privacy-policy {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: left;
+            max-width: 600px;
+        }
+
+        .privacy-policy h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .privacy-policy p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .privacy-policy section {
+            margin-bottom: 2rem;
+        }
+
+        .privacy-policy section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .privacy-link {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+
+        .privacy-link:hover {
+            opacity: 1;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #A7303E;
+            margin: 2rem auto;
+            padding: 2rem;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .close-button:hover {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -85,6 +163,50 @@
         <div class="contact-item">
             <a href="https://t.me/not_hijacked"> Telegram</a>
         </div>
+        <div class="privacy-link" onclick="openModal()">Політика конфіденційності</div>
     </div>
+
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Політика конфіденційності</h2>
+            <p>Дата набрання чинності: 2024</p>
+
+            <section>
+                <h3>1. Збір та використання даних</h3>
+                <p>Ми поважаємо вашу конфіденційність. Ваші особисті дані не збираються і не обробляються під час використання нашого додатка. Ми не зберігаємо, не обробляємо та не передаємо ваші дані третім особам.</p>
+            </section>
+
+            <section>
+                <h3>2. Зміни до політики конфіденційності</h3>
+                <p>Ми можемо оновлювати цю політику конфіденційності у разі змін у практиці обробки даних. Періодично перевіряйте цю сторінку для отримання актуальної інформації.</p>
+            </section>
+
+            <section>
+                <h3>3. Контакти</h3>
+                <p>Якщо у вас є будь-які питання щодо цієї політики конфіденційності, будь ласка, зв'яжіться з нами за адресою: miha2525z@gmail.com</p>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('privacyModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('privacyModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Закриття модального вікна при кліку поза ним
+        window.onclick = function(event) {
+            const modal = document.getElementById('privacyModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
